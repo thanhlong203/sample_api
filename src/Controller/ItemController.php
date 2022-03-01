@@ -50,7 +50,7 @@ class ItemController extends AppController
             return $response;
         }
         $data = $this->request->getData();
-        if (!$data['name'] || !$data['url'] || !$data['price']) {
+        if (!$data['name'] || !$data['url'] || !$data['price'] || !$data['referenceId'] || !$data['numberOfCopy']) {
             $response = $this->response->withStatus(500);
             return $response;
         }
@@ -189,12 +189,12 @@ class ItemController extends AppController
             return $response;
         }
         $data = $this->request->getData();
-        if (!$data['itemId']) {
+        if (!$data['email'] || !$data['referenceId'] || !$data['quantity'] || !$data['displayName'] || !$data['password']) {
             $response = $this->response->withStatus(500);
             return $response;
         }
         $response = $data;
-        $response['id'] = $data['itemId'];
+        $response['id'] = 1;
         $response['walletAddress'] = "1";
         $response['companyId'] = "1";
         $response['productId'] = "1";
