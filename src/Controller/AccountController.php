@@ -51,7 +51,7 @@ class AccountController extends AppController
             return $response;
         }
         $data = $this->request->getData();
-        if (!$data['displayName'] || !$data['password'] || $data['email']) {
+        if (!$data['displayName'] || !$data['password'] || !$data['email']) {
             $response = $this->response->withStatus(500);
             return $response;
         }
